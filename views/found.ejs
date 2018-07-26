@@ -3,10 +3,37 @@
   <title>Traget</title>
 </head>
 <body>
-
-    <p><%= allant %></p>
-    <p><%= enretour %></p>
-    <% if (allant == '' && enretour == '') { %>
+  <% allant.forEach(function(usr) { %>
+    <p>
+      <b><%= usr.nom %> <%= usr.prenom %></b>
+      <br>
+      part de <%= usr.depart %> vers <%= usr.dest %> le <i><%= usr.allezDate %></i>
+      date de retour: <i> <%= usr.retourDate %> </i><br>
+      email: <%= usr.email %> <br>
+      profil fb: <%= usr.facebook %> <br>
+      numero telephone : <%= usr.num %>
+    </p>
+    <% }); %>
+    <hr>
+    <% etape.forEach(function(usr) { %>
+      part de <%= usr.depart %> vers <%= usr.dest %> le <i><%= usr.allezDate %></i> et passe par <b><%= usr.etape%></b>
+      date de retour: <i> <%= usr.retourDate %> </i><br>
+      email: <%= usr.email %> <br>
+      profil fb: <%= usr.facebook %> <br>
+      numero telephone : <%= usr.num %>
+    <% }) %>
+    <hr>
+    <% enretour.forEach(function(usr){ %>
+    <p>
+      <b><%= usr.nom %> <%= usr.prenom %></b>
+      <br>
+      rentre de <%= usr.dest %> vers <%= usr.dest %> le <i><%= usr.retourDate %></i><br>
+      email: <%= usr.email %> <br>
+      profil fb: <%= usr.facebook %> <br>
+      numero telephone : <%= usr.num %>
+    </p>
+    <% }); %>
+    <% if (allant == '' && enretour == '' && etape == '') { %>
       <h1>Pas de resultat</h1>
       <% } %>
 </body>

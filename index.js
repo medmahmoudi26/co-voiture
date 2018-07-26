@@ -40,20 +40,21 @@ app.post('/chercher', function(req,res){
       dest: req.body.dest,
       allezDate: req.body.date
     }, function(error, allant){
-      if (!allant){
-        res.send('allant does not work');
-      }
       if (error) res.render('error', {error: error});
       traget.find({
         depart: req.body.dest,
         dest: req.body.depart,
         retourDate: req.body.date
       },function(error, enretour){
-        if (error) res.render('error',{error:error});
-        if (!enretour){
-          res.send('retour does not work');
-        }
-        res.render('found', {allant:allant, enretour: enretour});
+        if (error) res.render('error',{error: error});
+        traget.find({
+          etape: req.body.depart,
+          dest: req.body.dest,
+          allezDate: req.body.date
+        }, function (error, etape) {
+          if (error) res.render('error',{error: error});
+          res.render('found',{allant: allant,enretour: enretour, etape: etape});
+        });
       });
     });
   }
@@ -73,7 +74,7 @@ app.post('/proposer', function(req,res){
     facebook: req.body.facebook
   }, function(error, success){
     if (error) res.render('error', {error:error});
-    res.render('success');
+    res.render('success', {elmnt: success});
   });
 });
 //listen
