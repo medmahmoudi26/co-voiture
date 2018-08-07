@@ -3,22 +3,14 @@
   <title>proposer</title>
 </head>
 <body>
+  <h5 align="right">
+    <a href="/proposer">proposer</a> <a href="/">accueil</a> <a href="/logoff">deconnection</a>
+  </h5>
   <h1>proposer un traget</h1>
   <hr>
+  <h1><%= user.nom %>, vous pouvez proposer un traget facilement</h1>
   <form action="/proposer" method="post">
     <table>
-    <tr>
-      <td><input type="text" name="nom" placeholder="nom"></td>
-      <td><input type="prenom" name="prenom" placeholder="prenom"></td>
-    </tr>
-    <tr>
-      <td colspan="2">
-    <input type="email" name="email" placeholder="email">
-      </td>
-    </tr>
-    <tr>
-      <td><input type="text" name="num" placeholder="numero"></td>
-    </tr>
     <tr>
     <td><input type="text" name="depart" placeholder="d'ou partez vous"></td>
     <td><input type="text" name="dest" placeholder="votre destination"></td>
@@ -31,9 +23,6 @@
       <td><input type="places" name="places" placeholder="nombre de places(4 par defaut)"></td>
       <td><input type="text" name="etape" placeholder="ville tu vas passer par"></td>
     <tr>
-    <tr>
-    <td><input type="url" name="facebook" placeholder="vote profil facebook"></td>
-    </tr>
     <table>
       <input type="submit" name="submit">
   </form>

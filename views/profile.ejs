@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>profile</title>
+  </head>
+  <body>
+    <% if(typeof user != 'undefined') { %>
+      <h5 align="right">
+        <a href="/proposer">proposer</a> <a href="/">accueil</a> <a href="/logoff">deconnection</a>
+      </h5>
+    <h1>Welcome <%= user.nom %> </h1>
+    <hr>
+    <form action="/update" method="post">
+
+    <table>
+      <tr>
+        <td>nom: </td>
+        <td> <input type="url" name="nom" value="<%= user.nom %>"></td>
+      </tr>
+      <tr>
+        <td>prenom: </td>
+        <td> <input type="url" name="prenom" value="<%= user.prenom %>"></td>
+      </tr>
+      <tr>
+        <td>email: </td>
+        <td><%= user.email %></td>
+      </tr>
+      <tr>
+        <td>date de naissance: </td>
+        <td> <input type="url" name="year" value="<%= user.year %>"></td>
+      </tr>
+      <tr>
+        <td>numéro de teléphone: </td>
+        <td> <input type="url" name="numero" value="<%= user.numero %>"></td>
+      </tr>
+      <tr>
+        <td>facebook: </td>
+        <td> <input type="url" name="facebook" value="<%= user.facebook %>"></td>
+      </tr>
+    </table>
+    <input type="submit" name="submit" value="enregistrer">
+  </form>
+  <% } %>
+  </body>
+</html>

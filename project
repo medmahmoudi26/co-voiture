@@ -1,0 +1,13 @@
+- chercher un traget
+- aa chnwa tet3ada
+- prposer un traget
+- bolean fumeur/non
+data de départ
+date d'arrivée
+
+*******************
+trajet:
+	-vehicule
+	-passagers
+	-nombre de place libre
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><% if (typeof user != 'undefined') { %>
+      <%= user.nom %> <% user.prenom %>
+        <% } %>
+      </title>
+  </head>
+  <body>
+    <% if (typeof user != 'undefined') { %>
+        <table>
+          <tr>
+            <td>nom: </td>
+            <td><%= user.nom %></td>
+          </tr>
+          <tr>
+            <td>prenom: </td>
+            <td><%= user.prenom %></td>
+          </tr>
+          <tr>
+            <td>email: </td>
+            <td><%= user.email %></td>
+          </tr>
+          <tr>
+            <td>date de naissance: </td>
+            <td><%= user.year %></td>
+          </tr>
+          <tr>
+            <td>numéro de teléphone: </td>
+            <td><%= user.number %></td>
+          </tr>
+          <tr>
+            <td>facebook: </td>
+            <td><%= user.facebook %></td>
+          </tr>
+        </table>
+        <% } %>
+  </body>
+</html>

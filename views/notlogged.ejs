@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>vous n'etes pas connecté</title>
+  </head>
+  <body>
+    <h1>vous n'etes pas connecté</h1>
+    <% if (typeof ps != 'undefined') { %>
+      <!-- if email used error will be shown here -->
+      <%= ps %>
+      <% } %>
+    <form action="/login" method="post">
+      <table>
+    <tr>
+      <td>email: </td>
+      <td><input type="text" name="email" required="true"></td>
+    </tr>
+    <tr>
+      <td>mot de passe: </td>
+      <td> <input type="password" name="pass" required="true"> </td>
+    </tr>
+  </table>
+  <input type="submit" name="submit" value="connecter">
+</form>
+vous n'avez pas de compte ? <a href="/register">créez un</a>
+  </body>
+</html>
