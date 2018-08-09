@@ -8,7 +8,7 @@
   </h5>
   <h1>proposer un traget</h1>
   <hr>
-  <h1><%= user.nom %>, vous pouvez proposer un traget facilement</h1>
+  <h1><%= user.prenom %>, vous pouvez proposer un traget facilement</h1>
   <form action="/proposer" method="post">
     <table>
     <tr>
@@ -20,7 +20,7 @@
     <td><input type="date" name="retourDate" placeholder="date d'arrivée"></td>
     </tr>
     <tr>
-      <td><input type="places" name="places" placeholder="nombre de places(4 par defaut)"></td>
+      <td><input type="number" name="places" value="4"></td>
       <td><input type="text" name="etape" placeholder="ville tu vas passer par"></td>
     <tr>
     <table>

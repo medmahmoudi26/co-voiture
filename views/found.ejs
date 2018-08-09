@@ -20,41 +20,47 @@
     <% } if (allant != '') { %>
   <% allant.forEach(function(usr) { %>
     <p>
-      <b><a href="/detail/<%= usr._id %>"><%= usr.nom %> <%= usr.prenom %></a></b>
+      <b><a href="/detail/<%= usr.userid %>"><%= usr.nom %> <%= usr.prenom %></a></b>
       <br>
       part de <%= usr.depart %> vers <%= usr.dest %> le <i><%= usr.allezDate %></i>
       date de retour: <i> <%= usr.retourDate %> </i><br>
       email: <%= usr.email %> <br>
       profil fb: <%= usr.facebook %> <br>
       numero telephone : <%= usr.num %>
+      <button type="button" name="reserve" onclick="reserver(<%= usr %>, <%= user %>)">reserver</button>
     </p>
     <% }); %>
     <hr>
     <% } if (etape != '') { %>
     <% etape.forEach(function(usr) { %>
-      <b><a href="/detail/<%= usr._id %>"><%= usr.nom %> <%= usr.prenom %></a></b>
+    <p>
+      <b><a href="/detail/<%= usr.userid %>"><%= usr.nom %> <%= usr.prenom %></a></b>
       <br>
       part de <%= usr.depart %> vers <%= usr.dest %> le <i><%= usr.allezDate %></i> et passe par <b><%= usr.etape%></b>
       date de retour: <i> <%= usr.retourDate %> </i><br>
       email: <%= usr.email %> <br>
       profil fb: <%= usr.facebook %> <br>
       numero telephone : <%= usr.num %>
+      <!-- buttopn with proposer id and reserver id -->
+      <button type="button" name="reserve" onclick="reserver(<%= usr %>, <%= user %>)">reserver</button>
+    </p>
     <% }) %>
     <hr>
-    <% } if (enretour != '') { %>
-    <% enretour.forEach(function(usr){ %>
-    <p>
-      <b><a href="/detail/<%= usr._id %>"><%= usr.nom %> <%= usr.prenom %></a></b>
-      <br>
-      rentre de <%= usr.dest %> vers <%= usr.dest %> le <i><%= usr.retourDate %></i><br>
-      email: <%= usr.email %> <br>
-      profil fb: <%= usr.facebook %> <br>
-      numero telephone : <%= usr.num %>
-    </p>
-    <% }); %>
-    <% } %>
-    <% if (allant == '' && enretour == '' && etape == '') { %>
+    <% } if (allant == '' && enretour == '' && etape == '') { %>
       <h1>Pas de resultat</h1>
       <% } %>
+      <script src="/socket.io/socket.io.js"></script>
+      <script>
+        var socket = io.connect('127.0.0.1',80);
+        function reserve(proposer,reserver) {
+          socket.emit('reserver',{proposer:proposer, reserver:reserver});
+          socket.on('error', function(error) {
+            alert(error);
+          });
+          socket.on('success', function(success){
+            alert(success);
+          });
+        }
+      </script>
 </body>
 </html>

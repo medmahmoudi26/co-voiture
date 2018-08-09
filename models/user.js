@@ -7,7 +7,7 @@ var UserSchema = new Schema ({
   pass: {type: String, required: true},
   email: {type: String, required:true, unique:true},
   year: {type: Number, required:true},
-  number: {type: Number},
+  number: {type: String},
   facebook: {type: String}
 });
 
